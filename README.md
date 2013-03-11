@@ -15,6 +15,11 @@ There are two customized implementation:
 - [Default Cloner](https://github.com/mnorbi/fluidity-cloning/blob/master/cloning/fluidity-cloning/src/main/java/com/innometa/fluidity/cloning/Cloner.java)
 - [Hibernate Cloner](https://github.com/mnorbi/fluidity-cloning/blob/master/cloning/fluidity-cloning-hibernate/src/main/java/com/innometa/fluidity/cloning/hibernate/cloning/Cloner.java)
 
+Snapshot version download links:
+- [Default Cloner](https://github.com/mnorbi/fluidity-cloning/blob/master/cloning/fluidity-cloning/dist/fluidity-cloning-0.0.1-SNAPSHOT.jar?raw=true)
+- [Hibernate Cloner](https://github.com/mnorbi/fluidity-cloning/blob/master/cloning/fluidity-cloning-hibernate/dist/fluidity-cloning-hibernate-0.0.1-SNAPSHOT.jar?raw=true)
+
+
 Credits:
 - Kostantinos Kougios
 - Norbert Madarasz
