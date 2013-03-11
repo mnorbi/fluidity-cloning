@@ -11,7 +11,7 @@ For examples take a look at the:
 - [ClonerTest](https://github.com/mnorbi/fluidity-cloning/blob/master/cloning/fluidity-cloning/src/test/java/com/innometa/fluidity/cloning/ClonerTest.java)
 classes.
 
-There are two customized implementation:
+There are two customized implementations:
 - [Default Cloner](https://github.com/mnorbi/fluidity-cloning/blob/master/cloning/fluidity-cloning/src/main/java/com/innometa/fluidity/cloning/Cloner.java)
 - [Hibernate Cloner](https://github.com/mnorbi/fluidity-cloning/blob/master/cloning/fluidity-cloning-hibernate/src/main/java/com/innometa/fluidity/cloning/hibernate/cloning/Cloner.java)
 
