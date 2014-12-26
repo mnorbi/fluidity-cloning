@@ -13,15 +13,13 @@ import junit.framework.Assert;
  *
  */
 public class CustomBeanProvider implements IBeanProvider {
-	private final CloneInjectedService cloneInjectedService = new CloneInjectedService();
-
 	public Object getBean(String beanName, Class<?> beanType) {
-		Assert.assertEquals(beanType, cloneInjectedService.getClass());
-		return cloneInjectedService;
+		Assert.assertEquals(beanType, CloneInjectedService.class);
+		return new CloneInjectedService();
 	}
 
 	public Object getBean(Class<?> beanType) {
-		Assert.assertEquals(beanType, cloneInjectedService.getClass());
-		return cloneInjectedService;
+		Assert.assertEquals(beanType, CloneInjectedService.class);
+		return new CloneInjectedService();
 	}
 }

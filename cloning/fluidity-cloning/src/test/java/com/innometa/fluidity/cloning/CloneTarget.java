@@ -25,7 +25,6 @@ import com.innometa.fluidity.cloning.fieldsetters.Skip;
  * @author norbert.madarasz
  *
  */
-@SuppressWarnings("unused")
 public class CloneTarget {
 	/**
 	 * Always a new instance will be created from this field
@@ -100,10 +99,10 @@ public class CloneTarget {
 	 * in the clone instance.
 	 */
 	@Clone(LongIncrement.class)
-	long version = 1l;
+	long version = 1L;
 
 	
-	CloneTarget original;
+	CloneTarget originalForDefaultActivationGroup;
 	/**
 	 * With {@link PostClone} annotation
 	 * you can customize the cloning process.
@@ -115,11 +114,11 @@ public class CloneTarget {
 	 */
 	@PostClone
 	private void postClone(CloneTarget original){
-		this.original = original;
+		this.originalForDefaultActivationGroup = original;
 	}
 	
-	CloneInjectedService service;
 	
+	boolean wasServiceCallForDefaultActivationGroup = false;
 	/**
 	 * The {@link PostClone} annotation
 	 * accepts {@link CloneInject} annotated.
@@ -140,10 +139,10 @@ public class CloneTarget {
 	 */
 	@PostClone
 	private void injectService(@CloneInject CloneInjectedService service){
-		this.service = service;
+		wasServiceCallForDefaultActivationGroup = service.callService();
 	}
 	
-	CloneTarget original1;
+	CloneTarget originalForActivationGroup1;
 	/**
 	 * {@link PostClone} annotations could also be switched on or
 	 * off based on the chosen activation group.
@@ -152,12 +151,11 @@ public class CloneTarget {
 	 */
 	@PostClone(CustomActivationGroup1.class)
 	private void postClone1(CloneTarget original){
-		this.original1 = original;
+		this.originalForActivationGroup1 = original;
 	}
 	
-	CloneInjectedService service23;
-	CloneTarget original23;
-	
+	CloneTarget originalForActivationGroups2And3;
+	boolean wasServiceCallForActivationGroups2And3 = false;
 	/**
 	 * {@link PostClone} annotations also work with 
 	 * multiple activation groups.
@@ -170,14 +168,14 @@ public class CloneTarget {
 	 */
 	@PostClone({CustomActivationGroup2.class, CustomActivationGroup3.class})
 	private void postClone23(CloneTarget original, @CloneInject CloneInjectedService service){
-		this.original23 = original;
-		this.service23 = service;
+		this.originalForActivationGroups2And3 = original;
+		wasServiceCallForActivationGroups2And3 = service.callService();
 	}
 	
-	CloneInjectedService service4;
+	boolean wasServiceCallForActivationGroup4 = false;
 	@PostClone(CustomActivationGroup4.class)
 	private void postClone4(@CloneInject CloneInjectedService service){
-		this.service4 = service; 
+		wasServiceCallForActivationGroup4 = service.callService();
 	}
 	
 }
